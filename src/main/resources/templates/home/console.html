@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>控制台</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="https://static.iskwen.com/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="https://static.iskwen.com/layui-v2.5.5/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="https://static.iskwen.com/yuntechlife/config/style/admin.css" media="all">
+    <style>
+        .layui-card {
+            border: 1px solid #f2f2f2;
+            border-radius: 5px;
+        }
+
+        .icon {
+            margin-right: 10px;
+            color: #1aa094;
+        }
+
+        .icon-cray {
+            color: #ffb800 !important;
+        }
+
+        .icon-blue {
+            color: #1e9fff !important;
+        }
+
+        .icon-tip {
+            color: #ff5722 !important;
+        }
+
+        .layuimini-qiuck-module {
+            text-align: center;
+            margin-top: 10px
+        }
+
+        .layuimini-qiuck-module a i {
+            display: inline-block;
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 2px;
+            font-size: 30px;
+            background-color: #F8F8F8;
+            color: #333;
+            transition: all .3s;
+            -webkit-transition: all .3s;
+        }
+
+        .layuimini-qiuck-module a cite {
+            position: relative;
+            top: 2px;
+            display: block;
+            color: #666;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        .welcome-module {
+            width: 100%;
+            height: 210px;
+        }
+
+        .panel {
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+        }
+
+        .panel-body {
+            padding: 10px
+        }
+
+        .panel-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 12px;
+            color: inherit
+        }
+
+        .label {
+            display: inline;
+            padding: .2em .6em .3em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25em;
+            margin-top: .3em;
+        }
+
+        .layui-red {
+            color: red
+        }
+
+        .main_btn > p {
+            height: 40px;
+        }
+
+        .layui-bg-number {
+            background-color: #F8F8F8;
+        }
+
+        .layuimini-notice:hover {
+            background: #f6f6f6;
+        }
+
+        .layuimini-notice {
+            padding: 7px 16px;
+            clear: both;
+            font-size: 12px !important;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.2s ease-in-out;
+        }
+
+        .layuimini-notice-title, .layuimini-notice-label {
+            padding-right: 70px !important;
+            text-overflow: ellipsis !important;
+            overflow: hidden !important;
+            white-space: nowrap !important;
+        }
+
+        .layuimini-notice-title {
+            line-height: 28px;
+            font-size: 14px;
+        }
+
+        .layuimini-notice-extra {
+            position: absolute;
+            top: 50%;
+            margin-top: -8px;
+            right: 16px;
+            display: inline-block;
+            height: 16px;
+            color: #999;
+        }
+    </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?164a5f15ccec2aeaabd9ad20780bd371";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-153564967-4');
+    </script>
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md8">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md6">
+                    <div class="layui-card">
+                        <div class="layui-card-header"><i class="fa fa-warning icon icon-cray"></i>數據統計</div>
+                        <div class="layui-card-body">
+
+                            <div class="layui-carousel layadmin-carousel layadmin-backlog">
+                                <div carousel-item>
+                                    <ul class="layui-row layui-col-space10">
+                                        <li class="layui-col-xs6">
+                                            <a lay-href="user/listTransaction" class="layadmin-backlog-body"
+                                               lay-text="交易明細">
+                                                <h3>今日收入</h3>
+                                                <p><cite>$<span id="todayIncome" class="num-jump">0.00</span></cite></p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a lay-href="flow/listYuntechFlow" class="layadmin-backlog-body"
+                                               lay-text="流量數據">
+                                                <h3>今日流量</h3>
+                                                <p><cite><span id="todayFlow" class="num-jump">0.00</span>G</cite></p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a class="layadmin-backlog-body" lay-href="school/listYuntechExpress"
+                                               lay-text="宿舍郵件中心">
+                                                <h3>未取包裹</h3>
+                                                <p><cite><span id="unLogisticsNum" class="num-jump"
+                                                               style="color: #FF5722;">0</span></cite></p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a class="layadmin-backlog-body" lay-href="school/listYuntechExpress"
+                                               lay-text="宿舍郵件中心">
+                                                <h3>我的包裹</h3>
+                                                <p><cite><span id="logisticsNum" class="num-jump"
+                                                               style="color: #FF5722;">0</span></cite></p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="layui-row layui-col-space10">
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" onclick="layer.tips('趕快去完成吧~', this, {tips: 3});"
+                                               class="layadmin-backlog-body">
+                                                <h3>待完成</h3>
+                                                <p><cite><span id="unCompletedNum" class="num-jump">0</span></cite></p>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs6">
+                                            <a href="javascript:;" onclick="layer.tips('已完成的訂單總數', this, {tips: 3});"
+                                               class="layadmin-backlog-body">
+                                                <h3>已完成</h3>
+                                                <p><cite><span id="completedNum" class="num-jump">0</span></cite></p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md6">
+                    <div class="layui-card">
+                        <div class="layui-card-header"><i class="fa fa-leaf icon icon-blue"></i>快捷入口</div>
+                        <div class="layui-card-body">
+                            <div class="layui-carousel layadmin-carousel layadmin-shortcut">
+                                <div carousel-item>
+                                    <ul class="layui-row layui-col-space10">
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="user/modifyInfo">
+                                                <i class="layui-icon layui-icon-edit"></i>
+                                                <cite>修改資料</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="user/modifyPassword">
+                                                <i class="layui-icon layui-icon-set-sm"></i>
+                                                <cite>修改密碼</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="user/listLoginRecord">
+                                                <i class="layui-icon layui-icon-log"></i>
+                                                <cite>登錄記錄</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:logout();">
+                                                <i class="layui-icon layui-icon-circle-dot"></i>
+                                                <cite>退出登錄</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:;" lay-href="user/certification" id="verifiedHref">
+                                                <i class="layui-icon layui-icon-flag" id="verified_ico"></i>
+                                                <cite id="verified_tip">身份認證</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="system/addFeedback">
+                                                <i class="layui-icon layui-icon-survey"></i>
+                                                <cite>意見反饋</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:goLine();">
+                                                <i class="layui-icon layui-icon-dialogue"></i>
+                                                <cite>聯繫客服</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:aboutOur();">
+                                                <i class="layui-icon layui-icon-about"></i>
+                                                <cite>關於我們</cite>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="layui-row layui-col-space10">
+                                        <li class="layui-col-xs3">
+                                            <a lay-href="user/userIndex">
+                                                <i class="layui-icon layui-icon-username"></i>
+                                                <cite>個人中心</cite>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-header"><i class="fa fa-bar-chart icon"></i>數據概覽</div>
+                        <div class="layui-card-body">
+
+                            <div class="layui-carousel layadmin-carousel layadmin-dataview" data-anim="fade"
+                                 lay-filter="LAY-index-dataview" id="echarsCarousel">
+                                <div carousel-item>
+                                    <div id="echarts-webflow"></div>
+                                    <div id="echarts-source"></div>
+                                    <div id="echarts-register"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-col-md4">
+            <div class="layui-card">
+                <div class="layui-card-header"><i class="fa fa-compass icon icon-cray"></i>
+                    系統介紹
+                    <i class="layui-icon layui-icon-tips" lay-tips="一定要支持的噢~" lay-offset="5"></i>
+                </div>
+                <div class="layui-card-body layui-text layadmin-text">
+                    <!--          尊敬的用戶：<br>-->
+                    <p>iTech是一個基於SpringBoot的集群分佈式微服務系統，採用前後端分離設計，Ajax、JWT實現前後端交互。</p>
+                    <p>擁有獨立靜態文件伺服器，全局HTTPS通訊、ECDN全球加速，多服務負載均衡、Druid線程池實現高並發高吞吐！</p>
+                    <p>附帶流量監控、任務幫幫、留言板等功能...
+                        <!--            <br>趕快跟身份的人分享吧，您的支持是我們進步的動力！-->
+                    </p>
+<!--                    <p>—— Skwen（<a href="https://i.iskwen.com/" target="_blank">iskwen.com</a>）</p>-->
+                </div>
+            </div>
+            <div class="layui-card">
+                <div class="layui-card-header"><i class="fa fa-bullhorn icon icon-tip"></i>系統公告
+                    <i class="layui-icon layui-icon-tips" lay-tips="時刻關注哦~" lay-offset="5"></i>
+                </div>
+                <!--                <a lay-href="" lay-text="" id="noticeHref" name="noticeHref" style="display:none;"></a>-->
+                <div class="layui-card-body layui-text" id="listNotice">
+                </div>
+            </div>
+            <div class="layui-card">
+                <div class="layui-card-header"><i class="fa fa-flag icon"></i>商業廣告</div>
+                <div class="layui-card-body">
+                    <div class="layui-carousel layadmin-carousel layadmin-news" data-autoplay="true" data-anim="fade"
+                         lay-filter="news">
+                        <div carousel-item id="listAdvert">
+                            <!--                            <div><a href="https://courier.iskwen.com/" target="_blank" class="layui-bg-red">yunCourier</a></div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src='https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js'></script>
+<script src="https://static.iskwen.com/jquery-v3.4.1/jquery.numscroll.js"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/timeUtils.js?v=1584610068"></script>
+<script src="https://static.iskwen.com/layui-v2.5.5/layui/layui.all.js" charset="utf-8"></script>
+<script src='https://static.iskwen.com/yuntechlife/js/util.js'></script>
+<script src="https://static.iskwen.com/ly2ui-v1.0.0/ly2ui.all.js?v=1583914281" charset="utf-8"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/templates/home/console.js?v=1600956960"></script>
+<script>
+    layui.config({
+        base: 'https://static.iskwen.com/yuntechlife/config/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'console']);
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>bindingLine</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link href="https://static.iskwen.com/bootstrap-3.3.7-dist/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/yuntechlife/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/bootstrap-3.3.7-dist/css/bootstrap-table.min.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/yuntechlife/css/animate.min.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/yuntechlife/css/style.min862f.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/layui-v2.5.5/layui/css/layui.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/ly2ui-v1.0.0/css/ly2ui.css?v=1583914281" rel="stylesheet">
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden
+        }
+
+        body {
+            background: #009688;
+        }
+
+        body:after {
+            content: '';
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-filter: blur(3px);
+            -moz-filter: blur(3px);
+            -o-filter: blur(3px);
+            -ms-filter: blur(3px);
+            filter: blur(3px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        .layui-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden
+        }
+
+        .admin-login-background {
+            width: 360px;
+            height: 300px;
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            margin-left: -180px;
+            margin-top: -100px;
+        }
+
+        .logo-title {
+            text-align: center;
+            letter-spacing: 2px;
+            padding: 14px 0;
+        }
+
+        .logo-title h1 {
+            color: #009688;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .login-form {
+            background-color: #fff;
+            border: 1px solid #fff;
+            border-radius: 3px;
+            padding: 14px 20px;
+            box-shadow: 0 0 8px #eeeeee;
+        }
+
+        .login-form .layui-form-item {
+            position: relative;
+        }
+
+        .login-form .layui-form-item label {
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            width: 38px;
+            line-height: 36px;
+            text-align: center;
+            color: #d2d2d2;
+        }
+
+        .login-form .layui-form-item input {
+            padding-left: 36px;
+        }
+
+        .captcha {
+            width: 60%;
+            display: inline-block;
+        }
+
+        .captcha-img {
+            display: inline-block;
+            width: 34%;
+            float: right;
+        }
+
+        .captcha-img img {
+            height: 34px;
+            border: 1px solid #e6e6e6;
+            height: 36px;
+            width: 100%;
+        }
+    </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?164a5f15ccec2aeaabd9ad20780bd371";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-153564967-4');
+    </script>
+</head>
+<body>
+<div class="layui-container">
+    <div class="admin-login-background">
+        <div class="layui-form login-form">
+            <div class="layui-form-item logo-title">
+                <h1>賬號綁定-iTech</h1>
+            </div>
+            <div class="layui-form-item">
+                <label id="usernameIco" class="layui-icon layui-icon-username" for="username"></label>
+                <input type="text" id="username" name="username" lay-verify="required|account" placeholder="用户名"
+                       autocomplete="off" onkeydown="key();"
+                       class="form-control ly2-tips"
+                       ly2-tips-text="請輸入您的賬號~"
+                       ly2-tips-color="#009688"
+
+                >
+            </div>
+            <div class="layui-form-item">
+                <label id="passwordIco" class="layui-icon layui-icon-password" for="password"></label>
+                <input type="password" id="password" name="password" lay-verify="required|password" placeholder="密碼"
+                       autocomplete="off" onkeydown="key();"
+                       class="form-control ly2-tips"
+                       ly2-tips-text="請輸入您的密碼~"
+                       ly2-tips-color="#009688"
+                >
+            </div>
+            <p class="text-muted text-center"><a href="/findPassword"  target="_blank">忘記了密碼?</a> 丨 <a href="/register"  target="_blank">註冊一個新的賬號</a></p>
+            <br>
+            <div class="layui-form-item">
+                <button onclick="login();" id="TencentCaptcha" data-appid="2002120895" data-cbfn="callback"
+                        class="layui-btn layui-btn-fluid" disabled>提 交
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src='https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js'></script>
+<script src="https://static.iskwen.com/layui-v2.5.5/layui/layui.all.js" charset="utf-8"></script>
+<script src='https://static.iskwen.com/yuntechlife/js/md5.js'></script>
+<script src='https://static.iskwen.com/yuntechlife/js/TCaptcha.js'></script>
+<script src="https://static.iskwen.com/layuimini-v1.0.4/lib/jq-module/jquery.particleground.min.js"
+        charset="utf-8"></script>
+<script src='https://static.iskwen.com/yuntechlife/js/util.js'></script>
+<script src="https://static.iskwen.com/ly2ui-v1.0.0/ly2ui.all.js?v=1583914281" charset="utf-8"></script>
+<script src="https://static.iskwen.com/line/liff-v1.0.0/sdk.js"></script>
+<!--<script src="https://clarence.tw/line-liff-starter/liff-starter.js"></script>-->
+<script src='https://static.iskwen.com/yuntechlife/js/templates/user/bindingLine.js?v=1600956960'></script>
+</body>
+</html>

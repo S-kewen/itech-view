@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="https://static.iskwen.com/layui-v2.5.5/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="https://static.iskwen.com/yuntechlife/config/style/admin.css" media="all">
+    <link href="https://static.iskwen.com/ly2ui-v1.0.0/css/ly2ui.css?v=1583914281" rel="stylesheet">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?164a5f15ccec2aeaabd9ad20780bd371";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-153564967-4');
+    </script>
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">儲值中心</div>
+                <div class="layui-card-body" pad15>
+
+                    <div class="layui-form" lay-filter="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">用戶名</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="username" name="username" value="" autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="請先確認用戶名是否正確" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                       readonly
+                                >
+                            </div>
+                            <div class="layui-form-mid layui-word-aux"><a id="byOthersHref"
+                                                                          href="javascript:byOthers();"
+                                                                          class="ly2-tips"
+                                                                          ly2-tips-text="哇,你最好了~"
+                                                                          ly2-tips-points="1"
+                                                                          ly2-tips-color="#009688"
+                                                                          readonly
+                            >幫他人儲值?</a></div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">卡密</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="cdkey" name="cdkey" value="" autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="請輸入儲值卡密~" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">必填</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" onclick="post()">
+                                    確認提交
+                                </button>
+                                <button class="layui-btn layui-btn-primary" onclick="clearInput()">重新填寫</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js"></script>
+<script src="https://static.iskwen.com/layui-v2.5.5/layui/layui.all.js"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/util.js" charset="utf-8"></script>
+<script src="https://static.iskwen.com/ly2ui-v1.0.0/ly2ui.all.js?v=1583914281" charset="utf-8"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/templates/user/recharge.js?v=1600956960"></script>
+</body>
+</html>

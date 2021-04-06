@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="https://static.iskwen.com/layui-v2.5.5/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="https://static.iskwen.com/yuntechlife/config/style/admin.css" media="all">
+    <link href="https://static.iskwen.com/ly2ui-v1.0.0/css/ly2ui.css?v=1583914281" rel="stylesheet">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?164a5f15ccec2aeaabd9ad20780bd371";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-153564967-4');
+    </script>
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">身份認證</div>
+                <div class="layui-card-body" pad15>
+
+                    <div class="layui-form" lay-filter="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">學號</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="studentId" name="studentId" placeholder="請輸入學號"
+                                       autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="請輸入您的學號~" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+                            <label class="layui-form-label">姓名</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="realName" name="realName" placeholder="請輸入真實姓名"
+                                       autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="請輸入您的真實姓名~" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">系所</label>
+                            <div class="layui-input-inline ly2-tips"
+                                 ly2-tips-text="請選擇您的系所,支持搜索哦~"
+                                 ly2-tips-points="1"
+                                 ly2-tips-color="#009688"
+                            >
+                                <select name="department" id="department" lay-search>
+                                    <option value="">請選擇</option>
+                                    <optgroup label="工程學院">
+                                        <option value="1">工程科技菁英班</option>
+                                        <option value="2">工程科技研究所</option>
+                                        <option value="3">機械工程系</option>
+                                        <option value="4">電機工程系</option>
+                                        <option value="5">電子工程系</option>
+                                        <option value="6">環境與安全衛生工程系</option>
+                                        <option value="7">化學工程與材料工程系</option>
+                                        <option value="8">營建工程系</option>
+                                        <option value="9">資訊工程系</option>
+                                        <option value="10">其他</option>
+                                    </optgroup>
+                                    <optgroup label="管理學院">
+                                        <option value="11">高階管理碩士學位學程</option>
+                                        <option value="12">工商管理學士學位學程</option>
+                                        <option value="13">工業工程與管理系</option>
+                                        <option value="14">企業管理系</option>
+                                        <option value="15">資訊管理系</option>
+                                        <option value="16">財務金融系</option>
+                                        <option value="17">會計系</option>
+                                        <option value="18">國際管理學士學位學程</option>
+                                        <option value="19">創業管理碩士學位學程</option>
+                                        <option value="20">產業經營專業博士學位學程</option>
+                                        <option value="21">其他</option>
+                                    </optgroup>
+                                    <optgroup label="設計學院">
+                                        <option value="22">設計學研究所</option>
+                                        <option value="23">工業設計系</option>
+                                        <option value="24">視覺傳達設計系</option>
+                                        <option value="25">建築與室內設計系</option>
+                                        <option value="26">數位媒體設計系</option>
+                                        <option value="27">創意生活設計系</option>
+                                        <option value="28">其他</option>
+                                    </optgroup>
+                                    <optgroup label="人文與科學學院">
+                                        <option value="29">應用外語系</option>
+                                        <option value="30">文化資產維護系</option>
+                                        <option value="31">技術及職業教育研究所</option>
+                                        <option value="32">漢學應用研究所</option>
+                                        <option value="33">休閒運動研究所</option>
+                                        <option value="34">科技法律研究所</option>
+                                        <option value="35">材料科技研究所</option>
+                                        <option value="36">英語菁英學程</option>
+                                        <option value="37">師資培育中心</option>
+                                        <option value="38">其他</option>
+                                    </optgroup>
+                                    <optgroup label="未來學院">
+                                        <option value="39">產業專案學士學位學程</option>
+                                        <option value="40">前瞻學士學位學程</option>
+                                        <option value="41">通識教育中心</option>
+                                        <option value="42">其他</option>
+                                    </optgroup>
+                                    <optgroup label="其他">
+                                        <option value="43">其他</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <label class="layui-form-label">班級</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="className" name="className" placeholder="請輸入所在班級名稱"
+                                       autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="請選擇您當前所在的班級~" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">URL</label>
+                            <div class="layui-input-inline" style="width: 64%">
+                                <input type="text" name="photoUrl" id="photoUrl" autocomplete="off"
+                                       placeholder="上傳完成後自動生成"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="請上傳學生證正面照檔案,支持bmp,png,jpeg,jpg" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+                            <button type="button" class="layui-btn ly2-tips" id="upload"
+                                    ly2-tips-text="文件大小不能超過10M" ly2-tips-points="1"
+                                    ly2-tips-color="#009688"
+                            >上傳檔案
+                            </button>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">備註</label>
+                            <div class="layui-input-block">
+                                <textarea id="remark" name="remark" placeholder="長度不能大於255(選填)"
+                                          class="layui-textarea ly2-tips"
+                                          ly2-tips-text="特殊情況說明(可空)" ly2-tips-points="1"
+                                          ly2-tips-color="#0"
+                                ></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" onclick="post()">
+                                    確認提交
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js"></script>
+<script src="https://static.iskwen.com/layui-v2.5.5/layui/layui.all.js"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/util.js" charset="utf-8"></script>
+<script src="https://static.iskwen.com/ly2ui-v1.0.0/ly2ui.all.js?v=1583914281" charset="utf-8"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/templates/user/certification.js?v=1600956960"></script>
+</body>
+</html>

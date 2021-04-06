@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="https://static.iskwen.com/layui-v2.5.5/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="https://static.iskwen.com/yuntechlife/config/style/admin.css" media="all">
+    <link href="https://static.iskwen.com/ly2ui-v1.0.0/css/ly2ui.css?v=1583914281" rel="stylesheet">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?164a5f15ccec2aeaabd9ad20780bd371";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-153564967-4');
+    </script>
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">查看訂單資訊</div>
+                <div class="layui-card-body" pad15>
+                    <div class="layui-form" lay-filter="">
+                        <div id="theInfo" style="display:none;">
+                            <div class="site-title">
+                                <fieldset class="layui-elem-field layui-field-title site-title">
+                                    <legend><a name="use">對方資訊</a></legend>
+                                </fieldset>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">用戶ID</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="theUserId" name="theUserId" autocomplete="off"
+                                           class="layui-input ly2-tips"
+                                           ly2-tips-text="對方用戶ID~" ly2-tips-points="1"
+                                           ly2-tips-color="#009688"
+                                    >
+                                </div>
+                                <label class="layui-form-label">真實姓名</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="theRealName" name="theRealName" autocomplete="off"
+                                           class="layui-input ly2-tips"
+                                           ly2-tips-text="對方真實姓名~" ly2-tips-points="1"
+                                           ly2-tips-color="#009688"
+                                    >
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">聯繫電話</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="thePhone" name="thePhone" autocomplete="off"
+                                           class="layui-input ly2-tips"
+                                           ly2-tips-text="對方手機號碼~" ly2-tips-points="1"
+                                           ly2-tips-color="#009688"
+                                    >
+                                </div>
+                                <label class="layui-form-label">line</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="theLine" name="theLine" autocomplete="off"
+                                           class="layui-input ly2-tips"
+                                           ly2-tips-text="對方line~" ly2-tips-points="1"
+                                           ly2-tips-color="#009688"
+                                    >
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">累計成就</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="theAllTotal" name="theAllTotal" autocomplete="off"
+                                           class="layui-input ly2-tips"
+                                           ly2-tips-text="累計完成訂單數~" ly2-tips-points="1"
+                                           ly2-tips-color="#009688"
+                                    >
+                                </div>
+                                <label class="layui-form-label">積分</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="theGrade" name="theGrade" autocomplete="off"
+                                           class="layui-input ly2-tips"
+                                           ly2-tips-text="低於60將無法繼續接單了哦~" ly2-tips-points="1"
+                                           ly2-tips-color="#009688"
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="site-title">
+                            <fieldset class="layui-elem-field layui-field-title site-title">
+                                <legend><a name="use">任務資訊</a></legend>
+                            </fieldset>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">任務名稱</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="expressName" name="expressName" autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="任務名稱~" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+                            <label class="layui-form-label">任務敘述</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="expressNum" name="expressNum" autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="任務敘述~" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">經驗要求</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="recipientName" name="recipientName" autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="經驗要求~" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+<!--                            <label class="layui-form-label">手機號碼</label>-->
+<!--                            <div class="layui-input-inline">-->
+<!--                                <input type="text" id="recipientPhone" name="recipientPhone" autocomplete="off"-->
+<!--                                       class="layui-input ly2-tips"-->
+<!--                                       ly2-tips-text="物流收件人手機號碼~" ly2-tips-points="1"-->
+<!--                                       ly2-tips-color="#009688"-->
+<!--                                >-->
+<!--                            </div>-->
+                        </div>
+<!--                        <div class="layui-form-item">-->
+<!--                            <label class="layui-form-label">貨物類型</label>-->
+<!--                            <div class="layui-input-inline">-->
+<!--                                <input type="text" id="expressType" name="expressType" autocomplete="off"-->
+<!--                                       class="layui-input ly2-tips"-->
+<!--                                       ly2-tips-text="貨物類型~" ly2-tips-points="1"-->
+<!--                                       ly2-tips-color="#009688"-->
+<!--                                >-->
+<!--                            </div>-->
+<!--                            <label class="layui-form-label">取貨地點</label>-->
+<!--                            <div class="layui-input-inline">-->
+<!--                                <input type="text" id="takePoints" name="takePoints" autocomplete="off"-->
+<!--                                       class="layui-input ly2-tips"-->
+<!--                                       ly2-tips-text="取貨地點~" ly2-tips-points="1"-->
+<!--                                       ly2-tips-color="#009688"-->
+<!--                                >-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <div class="site-title">
+                            <fieldset class="layui-elem-field layui-field-title site-title">
+                                <legend><a name="use">個人資訊</a></legend>
+                            </fieldset>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">聯繫人</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="contactName" name="contactName" autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="聯繫人名稱~" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+                            <label class="layui-form-label">上門地址</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="appointmentPoints" name="appointmentPoints" autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="上門地址~" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">聯繫電話</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="phone" name="phone" autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="聯繫電話~" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+                            <label class="layui-form-label">line</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="line" name="line" autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="line~" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">上門時間</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="appointmentTime" name="appointmentTime" autocomplete="off"
+                                       class="layui-input ly2-tips"
+                                       ly2-tips-text="上門時間~" ly2-tips-points="1"
+                                       ly2-tips-color="#009688"
+                                >
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">實際請以雙方商議為準,上門前請聯繫對方核實地址與時間</div>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">備註</label>
+                            <div class="layui-input-block">
+                                <textarea id="remark" name="remark"
+                                          class="layui-textarea ly2-tips"
+                                          ly2-tips-text="特殊情況說明" ly2-tips-points="1"
+                                          ly2-tips-color="#0"
+                                ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/timeUtils.js?v=1584610068"></script>
+<script src="https://static.iskwen.com/layui-v2.5.5/layui/layui.all.js"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/util.js" charset="utf-8"></script>
+<script src="https://static.iskwen.com/ly2ui-v1.0.0/ly2ui.all.js?v=1583914281" charset="utf-8"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/templates/express/seeExpressTakerByIssuance.js?v=1600956960"></script>
+</body>
+</html>

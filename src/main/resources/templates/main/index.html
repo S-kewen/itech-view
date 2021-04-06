@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>iTech</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="https://static.iskwen.com/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <link href="https://static.iskwen.com/yuntechlife/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/layui-v2.5.5/layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://static.iskwen.com/yuntechlife/css/admin.css" media="all">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?164a5f15ccec2aeaabd9ad20780bd371";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-153564967-4');
+    </script>
+</head>
+<body class="layui-layout-body">
+<div id="LAY_app">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <!-- 頭部區域 -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item layadmin-flexible" lay-unselect>
+                    <a href="javascript:;" layadmin-event="flexible" title="側邊伸縮">
+                        <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
+                    </a>
+                </li>
+                <li class="layui-nav-item" lay-unselect>
+                    <a href="javascript:;" layadmin-event="refresh" title="刷新">
+                        <i class="layui-icon layui-icon-refresh-3"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
+
+                <li class="layui-nav-item" lay-unselect>
+                    <a lay-href="user/listMessage" layadmin-event="message" href="javascript:getUnreadMessageCount();"
+                       lay-text="信息中心">
+                        <i class="layui-icon layui-icon-notice"><span class="layui-badge" id="messageState">0</span></i>
+                    </a>
+                </li>
+                <li class="layui-nav-item layui-hide-xs" lay-unselect>
+                    <a href="javascript:;" layadmin-event="theme">
+                        <i class="layui-icon layui-icon-theme"></i>
+                    </a>
+                </li>
+                <li class="layui-nav-item layui-hide-xs" lay-unselect>
+                    <a href="javascript:;" layadmin-event="note">
+                        <i class="layui-icon layui-icon-note"></i>
+                    </a>
+                </li>
+                <li class="layui-nav-item layui-hide-xs" lay-unselect>
+                    <a href="javascript:;" layadmin-event="fullscreen">
+                        <i class="layui-icon layui-icon-screen-full"></i>
+                    </a>
+                </li>
+                <li class="layui-nav-item" lay-unselect>
+                    <a href="javascript:;">
+                        <cite id="usernameByCite"></cite>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a lay-href="user/modifyInfo" style="text-align: center;">修改資料</a></dd>
+                        <dd><a lay-href="user/modifyPassword" style="text-align: center;">修改密碼</a></dd>
+                        <hr>
+                        <dd><a href="javascript:logout();" style="text-align: center;">退出</a></dd>
+                    </dl>
+                </li>
+
+                <li class="layui-nav-item layui-hide-xs" lay-unselect>
+                    <a href="javascript:showTip('當前瀏覽器不支持event,請切換瀏覽器後再試');" id="versionMsg" name="versionMsg"><i
+                            class="layui-icon layui-icon-more-vertical"></i></a>
+                </li>
+                <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-unselect>
+                    <a href="javascript:;" layadmin-event="more"><i class="layui-icon layui-icon-more-vertical"></i></a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 側邊菜單 -->
+        <div class="layui-side layui-side-menu">
+            <div class="layui-side-scroll">
+                <div class="layui-logo" lay-href="home/console">
+                    <span>iTech</span>
+                </div>
+
+                <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu"
+                    lay-filter="layadmin-system-side-menu">
+                    <li data-name="home" class="layui-nav-item layui-nav-itemed">
+                        <a href="javascript:;" lay-tips="主頁" lay-direction="2">
+                            <i class="layui-icon layui-icon-home"></i>
+                            <cite>主頁</cite>
+                        </a>
+                        <dl class="layui-nav-child list-group">
+                            <dd data-name="console" class="layui-this">
+                                <a lay-href="home/console" lay-id="home/console"><i class="fa fa-tachometer fa-fw"
+                                                                                    aria-hidden="true"></i>控制台</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li data-name="user" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="用戶" lay-direction="2">
+                            <i class="layui-icon layui-icon-user"></i>
+                            <cite>用戶</cite>
+                        </a>
+                        <dl class="layui-nav-child list-group">
+                            <dd data-name="userIndex">
+                                <a lay-href="user/userIndex" lay-id="user/userIndex"><i
+                                        class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i>個人中心</a>
+                            </dd>
+                            <dd data-name="loginRecord">
+                                <a lay-href="user/listLoginRecord" lay-id="user/listLoginRecord"><i
+                                        class="fa fa-shield fa-fw" aria-hidden="true"></i>登錄記錄</a>
+                            </dd>
+                            <dd data-name="transaction">
+                                <a lay-href="user/listTransaction" lay-id="user/listTransaction"><i
+                                        class="fa fa-usd fa-fw" aria-hidden="true"></i>交易明細</a>
+                            </dd>
+                            <dd data-name="message">
+                                <a lay-href="user/listMessage" lay-id="user/listMessage"><i class="fa fa-envelope fa-fw"
+                                                                                            aria-hidden="true"></i>信息中心</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li data-name="flow" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="流量監控" lay-direction="2">
+                            <i class="layui-icon layui-icon-website"></i>
+                            <cite>流量監控</cite>
+                        </a>
+                        <dl class="layui-nav-child list-group">
+                            <dd><a lay-href="flow/listYuntechFlow" lay-id="flow/listYuntechFlow"><i
+                                    class="fa fa-area-chart fa-fw" aria-hidden="true"></i>流量數據</a></dd>
+                            <dd><a lay-href="flow/listYuntechFlowSet" lay-id="flow/listYuntechFlowSet"><i
+                                    class="fa fa-toggle-on fa-fw" aria-hidden="true"></i>監控管理</a></dd>
+                            <dd><a lay-href="flow/listYuntechFlowWarn" lay-id="flow/listYuntechFlowWarn"><i
+                                    class="fa fa-bomb fa-fw" aria-hidden="true"></i>告警記錄</a></dd>
+                        </dl>
+                    </li>
+                    <li data-name="logistics" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="任務幫幫" lay-direction="2">
+                            <i class="layui-icon layui-icon-release"></i>
+                            <cite>任務幫幫</cite>
+                        </a>
+                        <dl class="layui-nav-child list-group">
+                            <dd><a lay-href="express/addExpressTaker" lay-id="express/addExpressTaker"><i
+                                    class="fa fa-plus-circle fa-fw" aria-hidden="true"></i>發起任務</a></dd>
+                            <dd><a lay-href="express/listExpressTaker" lay-id="express/listExpressTaker"><i
+                                    class="fa fa-search fa-fw" aria-hidden="true"></i>任務市場</a></dd>
+                            <dd><a lay-href="express/listExpressTakerIssuance"
+                                   lay-id="express/listExpressTakerIssuance"><i class="fa fa-star fa-fw"
+                                                                                aria-hidden="true"></i>我的任務</a></dd>
+                            <dd><a lay-href="express/listExpressTakerReceive"
+                                   lay-id="express/listExpressTakerReceive"><i class="fa fa-thumb-tack fa-fw"
+                                                                               aria-hidden="true"></i>接任記錄</a></dd>
+                        </dl>
+                    </li>
+                    <li data-name="system" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="校園" lay-direction="2">
+                            <i class="layui-icon layui-icon-tree"></i>
+                            <cite>校園</cite>
+                        </a>
+                        <dl class="layui-nav-child list-group">
+                            <dd><a lay-href="school/listYuntechExpress" lay-id="school/listYuntechExpress"><i
+                                    class="fa fa-building fa-fw" aria-hidden="true"></i>宿舍郵件中心</a></dd>
+                        </dl>
+                    </li>
+                    <li data-name="system" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="系統" lay-direction="2">
+                            <i class="layui-icon layui-icon-app"></i>
+                            <cite>系統</cite>
+                        </a>
+                        <dl class="layui-nav-child list-group">
+                            <dd><a lay-href="system/messageBoard" lay-id="system/messageBoard"><i
+                                    class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>留言板</a></dd>
+                            <dd><a lay-href="system/addFeedback" lay-id="system/addFeedback"><i class="fa fa-bug fa-fw"
+                                                                                                aria-hidden="true"></i>意見反饋</a>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 頁面標簽 -->
+        <div class="layadmin-pagetabs" id="LAY_app_tabs" lay-filter="layadmin-pagetabs-menu">
+            <div class="layui-icon layadmin-tabs-control layui-icon-prev" layadmin-event="leftPage"></div>
+            <div class="layui-icon layadmin-tabs-control layui-icon-next" layadmin-event="rightPage"></div>
+            <div class="layui-icon layadmin-tabs-control layui-icon-down">
+                <ul class="layui-nav layadmin-tabs-select" lay-filter="layadmin-pagetabs-nav">
+                    <li class="layui-nav-item" lay-unselect>
+                        <a href="javascript:;"></a>
+                        <dl class="layui-nav-child layui-anim-fadein">
+                            <dd layadmin-event="closeThisTabs"><a href="javascript:;">關閉當前標簽頁</a></dd>
+                            <dd layadmin-event="closeOtherTabs"><a href="javascript:;">關閉其它標簽頁</a></dd>
+                            <dd layadmin-event="closeAllTabs"><a href="javascript:;">關閉全部標簽頁</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="layui-tab" lay-unauto lay-allowClose="true" lay-filter="layadmin-layout-tabs">
+                <ul class="layui-tab-title" id="LAY_app_tabsheader">
+                    <li lay-id="home/console" lay-attr="home/console" class="layui-this"><i
+                            class="layui-icon layui-icon-home"></i></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 主體內容 -->
+        <div class="layui-body" id="LAY_app_body">
+            <div class="layadmin-tabsbody-item layui-show">
+                <iframe src="home/console" frameborder="0" class="layadmin-iframe"></iframe>
+            </div>
+            <!--      <div class="layui-footer" style="text-align:right;height:20px;line-height:25px;position:fixed;bottom:0;">-->
+            <!--        © iskwen.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+            <!--      </div>-->
+        </div>
+        <!-- 輔助元素，壹般用於移動設備下遮罩 -->
+        <div class="layadmin-body-shade" layadmin-event="shade"></div>
+    </div>
+</div>
+<script src="https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js"></script>
+<script src="https://static.iskwen.com/layui-v2.5.5/layui/layui.all.js"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/util.js"></script>
+<script src="https://static.iskwen.com/ly2ui-v1.0.0/ly2ui.all.js?v=1583914281" charset="utf-8"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/templates/main/index.js?v=1600956960"></script>
+<script type="text/javascript">
+    function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        // alert(sUserAgent);
+        if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+            //移動端
+        } else {//PC
+            $("#versionMsg").removeAttr("href");
+            $('#versionMsg').attr('layadmin-event', 'about');
+        }
+    }
+
+    browserRedirect();
+</script>
+<script>
+    layui.config({
+        base: 'https://static.iskwen.com/yuntechlife/config/' //靜態資源所在路徑
+    }).extend({
+        index: 'lib/index' //主入口模塊
+    }).use('index');
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://static.iskwen.com/layui-v2.5.5/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="https://static.iskwen.com/layuimini-v1.0.4/css/public.css" media="all">
+    <link rel="stylesheet" href="https://static.iskwen.com/layui-v2.5.5/extend/step-lay/step.css" media="all">
+    <link href="https://static.iskwen.com/ly2ui-v1.0.0/css/ly2ui.css?v=1583914281" rel="stylesheet">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?164a5f15ccec2aeaabd9ad20780bd371";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-153564967-4');
+    </script>
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <div class="layui-fluid">
+            <div class="layui-card">
+                <div class="layui-card-body" style="padding-top: 40px;">
+                    <div class="layui-carousel" id="stepForm" lay-filter="stepForm" style="margin: 0 auto;">
+                        <div carousel-item>
+                            <div>
+                                <form class="layui-form" style="margin: 0 auto;max-width: 460px;padding-top: 40px;"
+                                      id="addAgentOrder">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label required">任務名稱:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="logistics_name" name="logistics_name"
+                                                   autocomplete="off" placeholder="請填寫任務名稱"
+                                                   class="layui-input ly2-tips"
+                                                   ly2-tips-text="如:幫我搬家~" ly2-tips-points="1"
+                                                   ly2-tips-color="#009688"
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">任務敘述:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="logistics_num" name="logistics_num"
+                                                   autocomplete="off" placeholder="請簡要敘述任務內容"
+                                                   class="layui-input ly2-tips"
+                                                   ly2-tips-text="請準確填寫此項~" ly2-tips-points="1"
+                                                   ly2-tips-color="#009688"
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">經驗要求:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="consignee_name" name="consignee_name"
+                                                   autocomplete="off" placeholder="請填寫應征者所需要的條件"
+                                                   class="layui-input ly2-tips"
+                                                   ly2-tips-text="沒有則填無~" ly2-tips-points="1"
+                                                   ly2-tips-color="#009688"
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">酬勞:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="consignee_phone" name="consignee_phone"
+                                                   autocomplete="off" placeholder="請填寫您將支付的酬勞"
+                                                   class="layui-input ly2-tips"
+                                                   ly2-tips-text="請填寫您將支付的酬勞~" ly2-tips-points="1"
+                                                   ly2-tips-color="#009688"
+                                            >
+                                        </div>
+                                    </div>
+<!--                                    <div class="layui-form-item">-->
+<!--                                        <label class="layui-form-label">手機號碼:</label>-->
+<!--                                        <div class="layui-input-block">-->
+<!--                                            <input type="text" id="consignee_phone" name="consignee_phone"-->
+<!--                                                   autocomplete="off" placeholder="請填寫物流收件人手機號碼"-->
+<!--                                                   class="layui-input ly2-tips"-->
+<!--                                                   ly2-tips-text="請填寫收件人電話號碼~" ly2-tips-points="1"-->
+<!--                                                   ly2-tips-color="#009688"-->
+<!--                                            >-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="layui-form-item">-->
+<!--                                        <label class="layui-form-label">貨物種類:</label>-->
+<!--                                        <div class="layui-input-block">-->
+<!--                                            <select id="logistics_type" name="logistics_type"-->
+<!--                                                    lay-filter="logistics_type">-->
+<!--                                                <option value="">請選擇貨物大小</option>-->
+<!--                                                <option value="1">小件</option>-->
+<!--                                                <option value="2">中件</option>-->
+<!--                                                <option value="3">大件</option>-->
+<!--                                                <option value="4">超大件</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="layui-form-item">-->
+<!--                                        <label class="layui-form-label">取貨地址:</label>-->
+<!--                                        <div class="layui-input-block">-->
+<!--                                            <select id="logistics_points" name="logistics_points" lay-search-->
+<!--                                                    lay-filter="logistics_points">-->
+<!--                                                <option value="">請選擇取貨地址</option>-->
+<!--                                                <optgroup label="超商取貨">-->
+<!--                                                    <option value="1">全家-龍潭店</option>-->
+<!--                                                    <option value="2">全家-四維店</option>-->
+<!--                                                    <option value="8">全家-雲大店</option>-->
+<!--                                                    <option value="3">711-雲龍店</option>-->
+<!--                                                </optgroup>-->
+<!--                                                <optgroup label="雲科">-->
+<!--                                                    <option value="4">宿舍郵件中心</option>-->
+<!--                                                    <option value="5">i郵箱</option>-->
+<!--                                                    <option value="6">文書組</option>-->
+<!--                                                </optgroup>-->
+<!--                                                <optgroup label="其他">-->
+<!--                                                    <option value="7">其他</option>-->
+<!--                                                </optgroup>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                            <button class="layui-btn" lay-submit lay-filter="formStep">
+                                                &emsp;下一步&emsp;
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div>
+                                <form class="layui-form" style="margin: 0 auto;max-width: 460px;padding-top: 40px;"
+                                      id="addAgentOrder2">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">任務地址:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="pickup_points" name="pickup_points"
+                                                   autocomplete="off" placeholder="請填寫任務地址(如宿舍A3-123)"
+                                                   class="layui-input ly2-tips"
+                                                   ly2-tips-text="請輸入任務地址,如宿舍A3-123~" ly2-tips-points="1"
+                                                   ly2-tips-color="#009688"
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">任務時間:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="appointment_time" name="appointment_time"
+                                                   autocomplete="off" placeholder="請選擇任務開始時間"
+                                                   class="layui-input ly2-tips"
+                                                   ly2-tips-text="請選擇任務開始時間~" ly2-tips-points="1"
+                                                   ly2-tips-color="#009688"
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">聯繫人:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="post_name" name="post_name" autocomplete="off"
+                                                   placeholder="請填寫您的稱呼"
+                                                   class="layui-input ly2-tips"
+                                                   ly2-tips-text="請輸入您的稱呼,如陳先生~" ly2-tips-points="1"
+                                                   ly2-tips-color="#009688"
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">Line:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="post_line" name="post_line" autocomplete="off"
+                                                   placeholder="請填寫您的Line(方便對方與您聯繫)"
+                                                   class="layui-input ly2-tips"
+                                                   ly2-tips-text="請輸入您的line,以便對方與您聯繫~" ly2-tips-points="1"
+                                                   ly2-tips-color="#009688"
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">聯繫電話:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" id="post_phone" name="post_phone" autocomplete="off"
+                                                   placeholder="請填寫您的手機號碼(方便對方與您聯繫)"
+                                                   class="layui-input ly2-tips"
+                                                   ly2-tips-text="請輸入您的手機號碼,以便對方與您聯繫~" ly2-tips-points="1"
+                                                   ly2-tips-color="#009688"
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">備註說明:</label>
+                                        <div class="layui-input-block">
+                                            <textarea id="remark" name="remark" placeholder="請填寫訂單備註(選填)"
+                                                      autocomplete="off"
+                                                      class="layui-textarea ly2-tips"
+                                                      ly2-tips-text="選填" ly2-tips-points="1"
+                                                      ly2-tips-color="#000"
+                                            ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button type="button" class="layui-btn layui-btn-primary pre">上一步</button>
+                                            <button class="layui-btn" lay-submit lay-filter="formStep2">
+                                                &emsp;下一步&emsp;
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div>
+                                <form class="layui-form" style="margin: 0 auto;max-width: 460px;padding-top: 40px;">
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-inline">
+                                            <label class="layui-form-label">任務名稱:</label>
+                                            <div class="layui-input-block">
+                                                <div class="layui-form-mid layui-word-aux"
+                                                     id="display_logistics_name"></div>
+                                            </div>
+                                        </div>
+                                        <label class="layui-form-label">工作敘述:</label>
+                                        <div class="layui-input-block">
+                                            <div class="layui-form-mid layui-word-aux" id="display_logistics_num"></div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-inline">
+                                            <label class="layui-form-label">經驗要求:</label>
+                                            <div class="layui-input-block">
+                                                <div class="layui-form-mid layui-word-aux"
+                                                     id="display_consignee_name"></div>
+                                            </div>
+                                        </div>
+<!--                                        <label class="layui-form-label">手機號碼:</label>-->
+<!--                                        <div class="layui-input-block">-->
+<!--                                            <div class="layui-form-mid layui-word-aux"-->
+<!--                                                 id="display_consignee_phone"></div>-->
+<!--                                        </div>-->
+                                    </div>
+<!--                                    <div class="layui-form-item">-->
+<!--                                        <div class="layui-input-inline">-->
+<!--                                            <label class="layui-form-label">貨物種類:</label>-->
+<!--                                            <div class="layui-input-block">-->
+<!--                                                <div class="layui-form-mid layui-word-aux"-->
+<!--                                                     id="display_logistics_type"></div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <label class="layui-form-label">取貨地址:</label>-->
+<!--                                        <div class="layui-input-block">-->
+<!--                                            <div class="layui-form-mid layui-word-aux"-->
+<!--                                                 id="display_logistics_points"></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-inline">
+                                            <label class="layui-form-label">任務地址:</label>
+                                            <div class="layui-input-block">
+                                                <div class="layui-form-mid layui-word-aux"
+                                                     id="display_pickup_points"></div>
+                                            </div>
+                                        </div>
+                                        <label class="layui-form-label">任務時間:</label>
+                                        <div class="layui-input-block">
+                                            <div class="layui-form-mid layui-word-aux"
+                                                 id="display_appointment_time"></div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-inline">
+                                            <label class="layui-form-label">聯繫人:</label>
+                                            <div class="layui-input-block">
+                                                <div class="layui-form-mid layui-word-aux" id="display_post_name"></div>
+                                            </div>
+                                        </div>
+                                        <label class="layui-form-label">Line:</label>
+                                        <div class="layui-input-block">
+                                            <div class="layui-form-mid layui-word-aux" id="display_post_line"></div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-inline">
+                                            <label class="layui-form-label">聯繫電話:</label>
+                                            <div class="layui-input-block">
+                                                <div class="layui-form-mid layui-word-aux"
+                                                     id="display_post_phone"></div>
+                                            </div>
+                                        </div>
+                                        <label class="layui-form-label">備註說明:</label>
+                                        <div class="layui-input-block">
+                                            <div class="layui-form-mid layui-word-aux" id="display_remark"></div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-inline">
+                                            <label class="layui-form-label">應付金額:</label>
+                                            <div class="layui-input-block">
+                                                <div class="layui-form-mid layui-word-aux"
+                                                     id="display_need_amount"></div>
+                                            </div>
+                                        </div>
+                                        <label class="layui-form-label">實付金額:</label>
+                                        <div class="layui-input-block">
+                                            <div class="layui-form-mid layui-word-aux" id="display_actual_amount"></div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button type="button" class="layui-btn layui-btn-primary pre">上一步</button>
+                                            <button class="layui-btn" lay-submit lay-filter="formStep3">
+                                                <!-- href="javascript:addAgentOrder()" -->
+                                                &emsp;確定提交&emsp;
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div>
+                                <div style="text-align: center;margin-top: 90px;">
+                                    <i class="layui-icon layui-circle"
+                                       style="color: white;font-size:30px;font-weight:bold;background: #52C41A;padding: 20px;line-height: 80px;">&#xe605;</i>
+                                    <div style="font-size: 24px;color: #333;font-weight: 500;margin-top: 30px;">
+                                        提交成功
+                                    </div>
+                                    <div style="font-size: 14px;color: #666;margin-top: 20px;">請耐心等待,並保持電話暢通</div>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <div style="text-align: center;margin-top: 50px;">
+                                    <button class="layui-btn layui-btn-primary next" lay-submit lay-filter="formStep4">
+                                        完成
+                                    </button>
+                                    <a class="layui-btn" lay-href="express/listExpressTakerIssuance" lay-text="我的訂單">快去看看</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div style="color: #666;margin-top: 30px;margin-bottom: 40px;padding-left: 30px;">
+                        <h3>說明</h3><br>
+                        <h4>平台會收取10%的手續費</h4>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js"></script>
+<script src="https://static.iskwen.com/layuimini-v1.0.4/js/lay-config.js" charset="utf-8"></script>
+<script src="https://static.iskwen.com/layui-v2.5.5/layui/layui.all.js"></script>
+<script src="https://static.iskwen.com/layui-v2.5.5/extend/step-lay/step.js"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/util.js" charset="utf-8"></script>
+<script src="https://static.iskwen.com/ly2ui-v1.0.0/ly2ui.all.js?v=1583914281" charset="utf-8"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/templates/express/addExpressTaker.js?v=1600956960"></script>
+</body>
+</html>

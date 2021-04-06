@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://static.iskwen.com/yuntechlife/css/animate.min.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/bootstrap-table-v1.9.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/bootstrap-table-v1.9.0/css/bootstrap-table.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/yuntechlife/css/style.min862f.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/layui-v2.5.5/layui/css/layui.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/ly2ui-v1.0.0/css/ly2ui.css?v=1583914281" rel="stylesheet">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?164a5f15ccec2aeaabd9ad20780bd371";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-153564967-4');
+    </script>
+</head>
+<style>
+    .ibox-content {
+        display: inline-block;
+        margin-bottom: 0px;
+        vertical-align: middle;
+    }
+</style>
+<body>
+<div class="example-wrap animated fadeInRight ibox-content">
+    <div class="example">
+        <div class="bootstrap-table">
+            <div class="fixed-table-toolbar">
+                <div class="bars pull-left">
+                    <form role="form" class="form-inline">
+                        <div class="form-group">
+                            <input type="text" placeholder="關鍵字" id="keyword" class="form-control ly2-tips"
+                                   ly2-tips-text="請輸入關鍵字" ly2-tips-points="3"
+                                   ly2-tips-color="#1E9FFF"
+                                   autocomplete="off">
+                            <input type="text" placeholder="時間段" id="selectTime" class="form-control ly2-tips"
+                                   style="width:300px"
+                                   ly2-tips-text="請選擇時間段" ly2-tips-points="3"
+                                   ly2-tips-color="#1E9FFF"
+                                   autocomplete="off">
+
+
+                            <select class="form-control ly2-tips" name="state" id="state" ly2-tips-text="請選擇狀態"
+                                    ly2-tips-points="3"
+                                    ly2-tips-color="#1E9FFF">
+                                <option value="0" selected>不限</option>
+                                <option value="1">未讀</option>
+                                <option value="2">已讀</option>
+                            </select>
+
+                            <span class="form-group-btn">
+                                  <button type="button" class="btn btn-primary ly2-tips" style="margin-bottom:0px"
+                                          onclick="javascript:reload()" ly2-tips-text="点击進行搜索~" ly2-tips-points="3"
+                                          ly2-tips-color="#5FB878">搜索</button>
+                                </span>
+
+
+                            <span class="form-group-btn">
+                                  <button type="button" class="btn btn-primary ly2-tips" style="margin-bottom:0px"
+                                          onclick="javascript:reload()" ly2-tips-text="点击進行刷新~" ly2-tips-points="3"
+                                          ly2-tips-color="#009688">刷新</button>
+                           </span>
+
+                            <span class="form-group-btn">
+                                  <button type="button" class="btn btn-primary ly2-tips" style="margin-bottom:0px"
+                                          onclick="javascript:resetSearch()" ly2-tips-text="点击重置搜索~" ly2-tips-points="3"
+                                          ly2-tips-color="#393D49">重置</button>
+                           </span>
+
+                            <span class="form-group-btn">
+                                  <button type="button" id="allRead" class="btn btn-warning ly2-tips"
+                                          style="margin-bottom:0px"
+                                          ly2-tips-text="一鍵將全部信息設為已讀~" ly2-tips-points="3" ly2-tips-color="#FFB800"
+                                          onclick="allReadMessage()">一鍵已讀 <span class="layui-badge"
+                                                                                id="unreadMessageCount">0</span></button>
+                           </span>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="columns columns-right btn-group pull-right">
+                    <!--                    表格拓展-->
+                </div>
+            </div>
+            <table id="dataTable"></table>
+        </div>
+    </div>
+</div>
+<script src="https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/timeUtils.js?v=1584610068"></script>
+<script src="https://static.iskwen.com/bootstrap-table-v1.9.0/js/bootstrap.min.js"></script>
+<script src="https://static.iskwen.com/bootstrap-table-v1.9.0/js/bootstrap-table.min.js"></script>
+<script src="https://static.iskwen.com/bootstrap-table-v1.9.0/js/bootstrap-table-zh-TW.min.js"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/content.min.js"></script>
+<script src="https://static.iskwen.com/layui-v2.5.5/layui/layui.all.js"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/util.js" charset="utf-8"></script>
+<script src="https://static.iskwen.com/ly2ui-v1.0.0/ly2ui.all.js?v=1583914281" charset="utf-8"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/templates/user/listMessage.js?v=1600956960"></script>
+<script>
+    var laydate = layui.laydate;
+    laydate.render({
+        elem: '#selectTime',
+        lang: getLaydateLang(),
+        range: true,
+        type: 'datetime',
+        format: 'yyyy-MM-dd HH:mm:ss'
+    });
+</script>
+</body>
+</html>

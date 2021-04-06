@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://static.iskwen.com/bootstrap-3.3.7-dist/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/yuntechlife/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/bootstrap-3.3.7-dist/css/bootstrap-table.min.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/yuntechlife/css/animate.min.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/yuntechlife/css/style.min862f.css" rel="stylesheet">
+    <link href="https://static.iskwen.com/layui-v2.5.5/layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://static.iskwen.com/yuntechlife/css/admin.css" media="all">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?164a5f15ccec2aeaabd9ad20780bd371";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-153564967-4');
+    </script>
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="widget style1 red-bg">
+                <div class="row">
+                    <div class="col-xs-4 text-center">
+                        <i class="fa fa-trophy fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span>今日收入</span>
+                        <h2 class="font-bold">$<span id="todayIncome" class="num-jump">0.00</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="widget style1 navy-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-location-arrow fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span>進行中</span>
+                        <h2 class="font-bold"><span id="processing" class="num-jump">0</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="widget style1 lazur-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-hourglass-half fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span>待處理</span>
+                        <h2 class="font-bold"><span id="pending" class="num-jump">0</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="widget style1 yellow-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span>訂單總數</span>
+                        <h2 class="font-bold"><span id="totalOrders" class="num-jump">0</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="widget style1 red-bg">
+
+                <div class="row">
+                    <div class="col-xs-4 text-center">
+                        <i class="fa fa-usd fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span>總收入</span>
+                        <h2 class="font-bold">$<span id="alldayIncome" class="num-jump">0.00</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="widget style1 navy-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-signal fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span>今日流量</span>
+                        <h2 class="font-bold"><span id="todayFlow" class="num-jump">0.00</span>G</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="widget style1 lazur-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-globe fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span>總流量</span>
+                        <h2 class="font-bold"><span id="allFlow" class="num-jump">0.00</span>G</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="widget style1 yellow-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-exclamation-triangle fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span>告警次數</span>
+                        <h2 class="font-bold"><span id="warnNum" class="num-jump">0</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="ibox">
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="m-b-md">
+                            <a lay-href="user/modifyPassword?byUrl=user/userIndex&byText=個人中心"
+                               class="btn btn-white btn-xs pull-right">修改密码</a>
+                            <a lay-href="user/modifyInfo?byUrl=user/userIndex&byText=個人中心"
+                               class="btn btn-white btn-xs pull-right">修改资料</a>
+                            <h2>個人資料</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <dl class="dl-horizontal">
+                            <dt>姓名：</dt>
+                            <dd id="actualName"></dd>
+                            <br>
+                            <dt>系所：</dt>
+                            <dd id="department"></dd>
+                            <br>
+                            <dt>Line：</dt>
+                            <dd id="line"></dd>
+                            <br>
+                            <dt>認證：</dt>
+                            <dd id="verifiedState"></dd>
+                        </dl>
+                    </div>
+                    <div class="col-sm-7" id="cluster_info">
+                        <dl class="dl-horizontal">
+                            <dt>餘額：</dt>
+                            <dd id="balance">
+                            </dd>
+                            <br>
+                            <dt>班級：</dt>
+                            <dd id="className"></dd>
+                            <br>
+                            <dt>Email：</dt>
+                            <dd id="email"></dd>
+                            <br>
+                            <dt>手機：</dt>
+                            <dd id="phone"></dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="row m-t-sm">
+                    <div class="col-sm-12">
+                        <div class="panel blank-panel">
+                            <div class="panel-heading">
+                                <div class="panel-options">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#tab-1" data-toggle="tab"
+                                                              aria-expanded="true">系統消息</a></li>
+                                        <li><a href="#tab-2" data-toggle="tab" aria-expanded="false">最近登錄</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="panel-body">
+
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab-1">
+                                        <div class="feed-activity-list">
+                                            <div class="feed-element" id="newsList">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab-2">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>時間</th>
+                                                <th>ip</th>
+                                                <th>詳細信息</th>
+                                                <th>經緯度</th>
+                                                <th>狀態</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="loginList">
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src='https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js'></script>
+<script src="https://static.iskwen.com/jquery-v3.4.1/jquery.numscroll.js"></script>
+<script src="https://static.iskwen.com/layui-v2.5.5/layui/layui.all.js" charset="utf-8"></script>
+<script src="https://static.iskwen.com/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/content.min.js"></script>
+<script src="https://static.iskwen.com/yuntechlife/js/timeUtils.js?v=1584610068"></script>
+<script src='https://static.iskwen.com/yuntechlife/js/util.js'></script>
+<script src="https://static.iskwen.com/ly2ui-v1.0.0/ly2ui.all.js?v=1583914281" charset="utf-8"></script>
+<script src='https://static.iskwen.com/yuntechlife/js/templates/user/userIndex.js?v=1600956960'></script>
+<script>
+    layui.config({
+        base: 'https://static.iskwen.com/yuntechlife/config/' //靜態資源所在路徑
+    }).extend({
+        index: 'lib/index' //主入口模塊
+    }).use('index');
+</script>
+</body>
+</html>
