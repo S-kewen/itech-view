@@ -8,6 +8,14 @@ demo: https://itech.iskwen.com
 後端：https://github.com/S-kwen/itech-api
 
 admin：https://github.com/S-kwen/itech-admin-view
+
+
+## 相關文件
+報告文件：https://static.iskwen.com/skwen/file/iTech.pptx
+
+專案總述：https://static.iskwen.com/skwen/file/iTech.pdf
+
+
 ## 簡介
 一個便捷的雲科大校園整合平台
 ## 動機
