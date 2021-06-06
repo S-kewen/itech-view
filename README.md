@@ -29,6 +29,31 @@ admin：https://github.com/S-kwen/itech-admin-view
 * (4)	不需要下載任何的APP：
 
     在幾乎人人都有一個LINE帳戶的環境下，透過LINE Bot連結網站，如果欲以行動裝置使用本專題系統，只須有LINE帳戶，無須下載任何APP即可使用。
+### 功能模塊
+```
+├─主頁
+│  ├─控制台
+├─用戶
+│  ├─個人中心
+│  ├─登錄記錄
+│  ├─交易明細
+│  ├─信息中心
+├─流量監控
+│  ├─流量記錄
+│  ├─監控管理
+│  ├─告警記錄
+├─任務幫幫
+│  ├─發起任務
+│  ├─任務市場
+│  ├─我的任務
+│  ├─接任記錄
+├─校園
+│  ├─宿舍郵件中心
+├─系統
+│  ├─留言板
+│  ├─意見反饋
+└─
+```
 ## 技術
 * SpringBoot
 * Mybatis
@@ -43,7 +68,6 @@ admin：https://github.com/S-kwen/itech-admin-view
 ## iTech LINE Bot
 ![](https://upload.cc/i1/2021/04/06/lWg6cs.png
 )
-## 系統結構
 
 ## 商業模式
 ![](https://upload.cc/i1/2021/04/06/OsUA45.jpg)
@@ -62,6 +86,7 @@ admin：https://github.com/S-kwen/itech-admin-view
     * (3)	宿舍公告通知：使用者可以透過LINE Bot接收寒暑假期宿舍住宿申請公告、相關演講及活動、下學期宿舍抽籤時程等宿舍公告。
     * (4)	三餐隨機推薦：提供不知道吃什麼的使用者餐廳或料理推薦，以學校周邊店家為主。
     * (5)	獎學金公告：校內或校外各類型獎學金訊息推播。
+    
 ## Contact Author
 石桂華(Skwen) https://blog.iskwen.com
 # END
